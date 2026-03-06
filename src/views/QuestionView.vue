@@ -6,10 +6,7 @@
     <div class="session-page__content question-layout">
       <div class="question-progress" :class="{ 'fade-out': leaving }">
         <div class="question-progress__track">
-          <div
-            class="question-progress__fill"
-            :style="{ width: progress + '%' }"
-          ></div>
+          <div class="question-progress__fill" :style="{ width: progress + '%' }"></div>
         </div>
         <p class="question-progress__label">{{ progress }}% completed</p>
       </div>
@@ -25,11 +22,7 @@
             <p class="question-qa__number">Question {{ currentIndex + 1 }}:</p>
             <h2 class="question-qa__text">{{ questionDisplayed }}</h2>
             <p v-if="showAnswer" class="question-qa__answer">
-              <TypewriterText
-                :text="currentAnswer"
-                :word-delay="90"
-                :key="'a-' + currentIndex"
-              />
+              <TypewriterText :text="currentAnswer" :word-delay="90" :key="'a-' + currentIndex" />
             </p>
           </div>
         </Transition>
@@ -151,7 +144,6 @@ function goNext() {
   padding-bottom: 0;
 }
 
-/* ---- Reposition orbit circles to center on the orb ---- */
 .session-page--question .session-page__orbit::before {
   top: 25%;
   transform: translate(-50%, -50%);
@@ -162,7 +154,6 @@ function goNext() {
   transform: translate(-50%, -50%);
 }
 
-/* ---- Subtle background glow that shifts per question ---- */
 .question-bg-glow {
   position: absolute;
   left: 60%;
@@ -176,7 +167,6 @@ function goNext() {
   transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ---- Layout ---- */
 .question-layout {
   width: min(780px, 100%);
   text-align: center;
@@ -185,20 +175,22 @@ function goNext() {
   min-height: calc(100vh - 120px);
 }
 
-/* ---- Fade-out for submit transition ---- */
 .fade-out {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
   opacity: 0;
   transform: translateY(-12px);
   pointer-events: none;
 }
 
-/* ---- Progress ---- */
 .question-progress {
   max-width: 600px;
   margin: 0 auto 24px;
   width: 100%;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .question-progress__track {
@@ -238,7 +230,6 @@ function goNext() {
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* ---- Orb row ---- */
 .question-orb-row {
   display: flex;
   align-items: center;
@@ -246,10 +237,11 @@ function goNext() {
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 32px;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
-/* ---- Q&A transition ---- */
 .qa-slide-leave-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -267,7 +259,6 @@ function goNext() {
   opacity: 0;
 }
 
-/* ---- Question / Answer area ---- */
 .question-qa-wrapper {
   flex: 1;
   overflow-y: auto;
@@ -275,7 +266,9 @@ function goNext() {
   mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
   padding-bottom: 40px;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .question-qa {
@@ -306,14 +299,15 @@ function goNext() {
   max-width: 65ch;
 }
 
-/* ---- Button area — pinned at bottom ---- */
 .question-actions {
   flex-shrink: 0;
   display: flex;
   justify-content: flex-end;
   padding: 16px 0 32px;
   min-height: 76px;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .question-actions__btn {
@@ -348,7 +342,6 @@ function goNext() {
   flex-shrink: 0;
 }
 
-/* ---- Button slide-in animation ---- */
 .btn-slide-enter-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
